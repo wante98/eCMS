@@ -1,0 +1,47 @@
+﻿@model IEnumerable<eCMS.Models.Employees>
+
+@{
+    ViewBag.Title = "Employee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>員工名單</h2>
+
+<p>
+    @Html.ActionLink("員工新增", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            員工工號
+        </th>
+        <th>
+            名稱
+        </th>
+        <th>
+            入職日期
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HireDate)
+        </td>
+        <td>
+            @Html.ActionLink("編輯", "Edit", new { id = item.EmployeeID }) |
+            @*@Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |*@
+            @Html.ActionLink("刪除", "Delete", new { id = item.EmployeeID })
+        </td>
+    </tr>
+}
+
+</table>
