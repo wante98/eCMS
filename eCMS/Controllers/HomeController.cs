@@ -9,7 +9,9 @@ namespace eCMS.Controllers
 {
     public class HomeController : Controller
     {
-        NorthwindEntities db = new NorthwindEntities();
+        NorthwindEntities1 db = new NorthwindEntities1();
+
+        //[Authorize]
         public ActionResult Index()
         {
             return View();

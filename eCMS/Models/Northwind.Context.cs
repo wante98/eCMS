@@ -15,10 +15,10 @@ namespace eCMS.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class NorthwindEntities : DbContext
+    public partial class NorthwindEntities1 : DbContext
     {
-        public NorthwindEntities()
-            : base("name=NorthwindEntities")
+        public NorthwindEntities1()
+            : base("name=NorthwindEntities1")
         {
         }
     
@@ -38,6 +38,7 @@ namespace eCMS.Models
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
+        public virtual DbSet<User> User { get; set; }
         public virtual DbSet<Alphabetical_list_of_products> Alphabetical_list_of_products { get; set; }
         public virtual DbSet<Category_Sales_for_1997> Category_Sales_for_1997 { get; set; }
         public virtual DbSet<Current_Product_List> Current_Product_List { get; set; }

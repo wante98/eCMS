@@ -12,7 +12,7 @@ namespace eCMS.Controllers
     public class HomeApiController : HomeController
     {
 
-        NorthwindEntities db = new NorthwindEntities();
+        NorthwindEntities1 db = new NorthwindEntities1();
         // GET: Home
         //public ActionResult Index()
         //{
@@ -21,7 +21,7 @@ namespace eCMS.Controllers
         //}
 
 
-
+       
         [HttpPost]
         public ActionResult Create(Employees employee)
         {
@@ -68,7 +68,7 @@ namespace eCMS.Controllers
         //    return View(employee);
         //}
 
-        public ActionResult Delete(int EmployeeID)
+        public new ActionResult Delete(int EmployeeID)
         {
             var employee = db.Employees
                 .Where(m => m.EmployeeID == EmployeeID).FirstOrDefault();
