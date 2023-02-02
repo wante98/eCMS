@@ -1,0 +1,124 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model  IPagedList<eCMS.Models.Orders>
+
+@{
+    ViewBag.Title = "訂單查詢";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h2>訂單查詢</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<br />
+<table class="table" style="border:1px #000f solid;" cellpadding="10" border='1'>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().OrderID)
+            
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().OrderDate)
+           
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().RequiredDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShippedDate)
+  
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Freight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipRegion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipPostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ShipCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Customers.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Employees.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Shippers.CompanyName)
+        </th>
+        @*<th></th>*@
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderID)
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequiredDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipRegion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipPostalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customers.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employees.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shippers.CompanyName)
+            </td>
+            @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
+        </td>*@
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Order","Home", new { page }))

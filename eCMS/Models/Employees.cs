@@ -11,7 +11,8 @@ namespace eCMS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Employees
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -27,7 +28,9 @@ namespace eCMS.Models
         public string FirstName { get; set; }
         public string Title { get; set; }
         public string TitleOfCourtesy { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> BirthDate { get; set; }
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> HireDate { get; set; }
         public string Address { get; set; }
         public string City { get; set; }

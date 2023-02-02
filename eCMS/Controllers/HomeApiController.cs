@@ -22,25 +22,25 @@ namespace eCMS.Controllers
 
 
        
-        [HttpPost]
-        public ActionResult Create(Employees employee)
-        {
-            if (ModelState.IsValid)
-            {
-                ViewBag.Error = false;
-                var temp = db.Employees.Where(m => m.EmployeeID == employee.EmployeeID)
-                    .FirstOrDefault();
-                if (temp != null)
-                {
-                    ViewBag.Error = true;
-                    return View(employee);
-                }
-                db.Employees.Add(employee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(employee);
-        }
+        //[HttpPost]
+        //public ActionResult Create(Employees employee)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        ViewBag.Error = false;
+        //        var temp = db.Employees.Where(m => m.EmployeeID == employee.EmployeeID)
+        //            .FirstOrDefault();
+        //        if (temp != null)
+        //        {
+        //            ViewBag.Error = true;
+        //            return View(employee);
+        //        }
+        //        db.Employees.Add(employee);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(employee);
+        //}
 
         //public ActionResult Edit(string fEmpId)
         //{
@@ -68,14 +68,14 @@ namespace eCMS.Controllers
         //    return View(employee);
         //}
 
-        public new ActionResult Delete(int EmployeeID)
-        {
-            var employee = db.Employees
-                .Where(m => m.EmployeeID == EmployeeID).FirstOrDefault();
-            db.Employees.Remove(employee);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //public new ActionResult Delete(int EmployeeID)
+        //{
+        //    var employee = db.Employees
+        //        .Where(m => m.EmployeeID == EmployeeID).FirstOrDefault();
+        //    db.Employees.Remove(employee);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
     }
 }
