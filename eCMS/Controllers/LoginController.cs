@@ -14,7 +14,6 @@ namespace eCMS.Controllers
 
         // GET: Login
         [AllowAnonymous]
-        //[OutputCache(Duration = 0, VaryByParam = "*")]
         public ActionResult Index()
         {
             if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
@@ -30,17 +29,6 @@ namespace eCMS.Controllers
         [HttpPost]
         public ActionResult Login(string Username, string Password)
         {
-
-            // 循序搜尋法
-            //int index = -1;
-            //for (int i = 0; i < uidAry.Length; i++)
-            //{
-            //    if (uidAry[i] == txtUid && pwdAry[i] == txtPwd)
-            //    {
-            //        index = i;
-            //        break;
-            //    }
-            //}
             if (!string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password))
             {
                 var CheckUser = db.User.Where(m => m.UserName == Username && m.Password == Password);

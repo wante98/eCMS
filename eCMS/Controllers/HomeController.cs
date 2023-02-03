@@ -37,28 +37,6 @@ namespace eCMS.Controllers
             var dtos = new List<Orders>();
             int currentPage = page < 1 ? 1 : page;
             var orders = db.Orders.OrderBy(m=>m.OrderID).ToList();
-            //foreach(var order in orders)
-            //{
-            //    var dto = new Orders();
-            //    {
-            //        dto.OrderID = order.OrderID;
-            //        dto.CustomerID = order.CustomerID;
-            //        dto.EmployeeID = order.EmployeeID;
-            //        dto.OrderDate = order.OrderDate.ToShortDateString(;
-            //        dto.RequiredDate = order.RequiredDate;
-            //        dto.ShippedDate = order.ShippedDate;
-            //        dto.ShipVia = order.ShipVia;
-            //        dto.Freight = order.Freight;
-            //        dto.ShipName = order.ShipName;
-            //        dto.ShipAddress = order.ShipAddress;
-            //        dto.ShipCity = order.ShipCity;
-            //        dto.ShipRegion = order.ShipRegion;
-            //        dto.ShipPostalCode = order.ShipPostalCode;
-            //        dto.ShipCountry = order.ShipCountry;
-
-            //    }
-            //    dtos.Add(dto);
-            //}
             var result = orders.ToPagedList(currentPage, pageSize);
             ViewBag.Message = "Order";
 
