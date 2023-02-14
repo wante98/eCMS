@@ -25,12 +25,7 @@ namespace eCMS.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+        
         int pageSize = 10;
         public ActionResult Order(int page = 1)
         {
